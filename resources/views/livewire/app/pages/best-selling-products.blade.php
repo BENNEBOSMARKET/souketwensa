@@ -130,14 +130,14 @@
                                 @if ($bestSellingProduct->discount > 0)
                                     <div class="product_price product_price_side">
                                         <div class="percentage_offer">{{ $bestSellingProduct->discount }}%</div>
-                                        <h4>₺{{ discountPrice($bestSellingProduct->id) }}</h4>
+                                        <h4>TND {{ discountPrice($bestSellingProduct->id) }}</h4>
                                         <h4 class="discount_price">
-                                            <del>₺{{ $bestSellingProduct->unit_price }}</del>
+                                            <del>TND {{ $bestSellingProduct->unit_price }}</del>
                                         </h4>
                                     </div>
                                 @else
                                     <div class="product_price product_price_side">
-                                        <h4>₺{{ $bestSellingProduct->unit_price }}</h4>
+                                        <h4>TND {{ $bestSellingProduct->unit_price }}</h4>
                                     </div>
                                 @endif
     

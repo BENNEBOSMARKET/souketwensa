@@ -71,7 +71,7 @@
                                         <h5>{{ orderProductCount($order->id) }}</h5>
                                     </td>
                                     <td>
-                                        <h5>₺ {{ $order->grand_total }}</h5>
+                                        <h5>TND  {{ $order->grand_total }}</h5>
                                     </td>
                                     <td>
                                         <h5>{{ ucfirst($order->delivery_status) }}</h5>

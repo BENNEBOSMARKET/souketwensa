@@ -231,15 +231,15 @@
                         <ul class="order_summer_list">
                             <li>
                                 <h4>{{ __('auth.subtotal') }} ({{ Session::get('checkout')['totalItem'] }} Items)</h4>
-                                <h5>₺{{ round(Session::get('checkout')['subtotal'], 2) }}</h5>
+                                <h5>TND {{ round(Session::get('checkout')['subtotal'], 2) }}</h5>
                             </li>
                             <li>
                                 <h4>{{ __('auth.discount') }}</h4>
-                                <h5>₺{{ round(Session::get('checkout')['totalDiscount'], 2) }}</h5>
+                                <h5>TND {{ round(Session::get('checkout')['totalDiscount'], 2) }}</h5>
                             </li>
                             <li>
                                 <h4>{{ __('auth.shipping_fee') }}</h4>
-                                <h5>₺{{ $shippingfee }}</h5>
+                                <h5>TND {{ $shippingfee }}</h5>
                             </li>
                             @if (session('coupon'))
                                 <li>
@@ -250,7 +250,7 @@
 
                             <li>
                                 <h4><b>{{ __('auth.total') }}</b></h4>
-                                <h5><b>₺{{ round(Session::get('checkout')['grand_total'], 2) }}</b></h5>
+                                <h5><b>TND {{ round(Session::get('checkout')['grand_total'], 2) }}</b></h5>
                             </li>
 
                         </ul>
@@ -258,7 +258,7 @@
                         @if ($myPoint > 0)
                             <div class="cart_title_inner">
                                 <div class="custom_checkbox_area d-flex justify-content-between flex-wrap-wrap g-sm">
-                                    <label class="checkbox_wrapper" style="cursor: default;><i class="fa fa-dot-circle-o" aria-hidden="true"></i> Exchange {{ $use_point }} Point = <b>{{ $point_amount }}</b>₺
+                                    <label class="checkbox_wrapper" style="cursor: default;><i class="fa fa-dot-circle-o" aria-hidden="true"></i> Exchange {{ $use_point }} Point = <b>{{ $point_amount }}</b>TND 
                                         <input type="checkbox" wire:model='use_my_points' wire:change='usePoints' value="1" wire:loading.attr='disabled' />
                                         <span class="checkmark"></span>
                                     </label>

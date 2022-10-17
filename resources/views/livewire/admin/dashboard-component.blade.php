@@ -172,7 +172,7 @@
                                 <p class="text-muted mb-0 fw-semibold font-13">{{ category($product->category_id)->name }}</p>
                             </div>
                             <div class="align-self-center">
-                                <p class="fw-bold font-22 m-0">₺{{ $product->unit_price }}</p>
+                                <p class="fw-bold font-22 m-0">TND {{ $product->unit_price }}</p>
                             </div>
                         </div>
                     </div>

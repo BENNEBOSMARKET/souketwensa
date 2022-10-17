@@ -54,7 +54,7 @@
                                             class="sellar_summery_icon" alt="sellar summery icon" />
                                         <div class="sellar_counter_area" id="counters_1">
                                             <h4>
-                                                ₺<span class="counter" data-TargetNum="{{ $totalEarnings }}"></span>
+                                                TND <span class="counter" data-TargetNum="{{ $totalEarnings }}"></span>
                                             </h4>
                                             <h5>{{ __('seller.total_earnings') }}</h5>
                                         </div>

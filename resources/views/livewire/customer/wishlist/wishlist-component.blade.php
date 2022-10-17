@@ -45,7 +45,7 @@
                                                 </a>
                                             </h3>
                                             <h5>{{ brand(product($wishlist->product_id)->brand_id)->name }}</h5>
-                                            <h4>₺{{ product($wishlist->product_id)->unit_price }}</h4>
+                                            <h4>TND {{ product($wishlist->product_id)->unit_price }}</h4>
                                         </div>
                                     </div>
                                     <div class="order_date_area">
