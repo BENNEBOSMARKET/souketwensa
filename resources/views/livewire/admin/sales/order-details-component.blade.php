@@ -135,33 +135,33 @@
                                                         @endif
                                                     </td>
                                                     <td>{{ $orderDetail->quantity }}</td>
-                                                    <td>₺{{ $orderDetail->price }}</td>
-                                                    <td>₺{{ $orderDetail->price * $orderDetail->quantity }}</td>
+                                                    <td>TND {{ $orderDetail->price }}</td>
+                                                    <td>TND {{ $orderDetail->price * $orderDetail->quantity }}</td>
                                                 </tr>
                                             @endforeach
 
                                             <tr>
                                                 <th colspan="4" class="border-0"></th>
                                                 <td class="border-0 font-14 text-dark"><b>Sub Total</b></td>
-                                                <td class="border-0 font-14 text-dark"><b>₺{{ $orderDetails->sum('total') }}</b></td>
+                                                <td class="border-0 font-14 text-dark"><b>TND {{ $orderDetails->sum('total') }}</b></td>
                                             </tr>
 
                                             <tr>
                                                 <td colspan="4" class="border-0"></td>
                                                 <td class="border-0 font-14 text-dark"><b>Coupon</b></td>
-                                                <td class="border-0 font-14 text-dark"><b>₺{{ order($orderDetail->order_id)->coupon_discount }}</b></td>
+                                                <td class="border-0 font-14 text-dark"><b>TND {{ order($orderDetail->order_id)->coupon_discount }}</b></td>
                                             </tr>
 
                                             <tr>
                                                 <td colspan="4" class="border-0"></td>
                                                 <td class="border-0 font-14 text-dark"><b>Discount</b></td>
-                                                <td class="border-0 font-14 text-dark"><b>₺{{ order($orderDetail->order_id)->discount }}</b></td>
+                                                <td class="border-0 font-14 text-dark"><b>TND {{ order($orderDetail->order_id)->discount }}</b></td>
                                             </tr>
 
                                             <tr class="bg-black text-white">
                                                 <th colspan="5" class="border-0"></th>
                                                 <td class="border-0 font-14"><b>Total</b></td>
-                                                <td class="border-0 font-14"><b>₺{{ order($orderDetail->order_id)->grand_total }}</b></td>
+                                                <td class="border-0 font-14"><b>TND {{ order($orderDetail->order_id)->grand_total }}</b></td>
                                             </tr>
                                         </tbody>
                                     </table>

@@ -112,33 +112,33 @@
                                                 </td>
                                                 <td>{{ $item->quantity }}</td>
 
-                                                <td>₺{{ $item->price }}</td>
-                                                <td>₺{{ $item->total }}</td>
+                                                <td>TND {{ $item->price }}</td>
+                                                <td>TND {{ $item->total }}</td>
                                             </tr>
                                             @endforeach
                                             <!--end tr-->
                                             <tr>
                                                 <td colspan="3" class="border-0"></td>
                                                 <td class="border-0 font-14 text-dark"><b>Coupon</b></td>
-                                                <td class="border-0 font-14 text-dark"><b>₺{{ $order->coupon_discount }}</b></td>
+                                                <td class="border-0 font-14 text-dark"><b>TND {{ $order->coupon_discount }}</b></td>
                                             </tr>
                                             <!--end tr-->
                                             <tr>
                                                 <td colspan="3" class="border-0"></td>
                                                 <td class="border-0 font-14 text-dark"><b>Discount</b></td>
-                                                <td class="border-0 font-14 text-dark"><b>₺{{ $order->discount }}</b></td>
+                                                <td class="border-0 font-14 text-dark"><b>TND {{ $order->discount }}</b></td>
                                             </tr>
                                             <!--end tr-->
                                             <tr>
                                                 <th colspan="3" class="border-0"></th>
                                                 <td class="border-0 font-14 text-dark"><b>Sub Total</b></td>
-                                                <td class="border-0 font-14 text-dark"><b>₺{{ $order->grand_total }}</b></td>
+                                                <td class="border-0 font-14 text-dark"><b>TND {{ $order->grand_total }}</b></td>
                                             </tr>
                                             <!--end tr-->
                                             <tr class="bg-black text-white">
                                                 <th colspan="3" class="border-0"></th>
                                                 <td class="border-0 font-14"><b>Total</b></td>
-                                                <td class="border-0 font-14"><b>₺{{ $order->grand_total }}</b></td>
+                                                <td class="border-0 font-14"><b>TND {{ $order->grand_total }}</b></td>
                                             </tr>
                                             <!--end tr-->
                                         </tbody>

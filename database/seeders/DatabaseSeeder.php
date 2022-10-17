@@ -22,8 +22,8 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        // Category::factory(10)->create();
-        // Product::factory(25)->create();
+        Category::factory(10)->create();
+        Product::factory(25)->create();
         // Color::factory(25)->create();
         // Brand::factory(25)->create();
         // Subscriber::factory(15)->create();
@@ -34,9 +34,9 @@ class DatabaseSeeder extends Seeder
         // Qutotation::factory(50)->create();
         // QutotationCategory::factory(50)->create();
         // Cart::factory(10)->create();
-        $this->call(AdminTableSeeder::class);
-        $this->call(SellerTableSeeder::class);
-        $this->call(WebsiteSettingTableSeeder::class);
+        // $this->call(AdminTableSeeder::class);
+        // $this->call(SellerTableSeeder::class);
+        // $this->call(WebsiteSettingTableSeeder::class);
         // $this->call(ESliderSeeder::class);
 
         // Order::factory(10)->create();

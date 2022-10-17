@@ -445,9 +445,6 @@
                                             <option value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }}>
                                                 English
                                             </option>
-                                            <option value="tur"
-                                                {{ app()->getLocale() == 'tur' ? 'selected' : '' }}>Turkish
-                                            </option>
                                             <option value="fr" {{ app()->getLocale() == 'fr' ? 'selected' : '' }}>
                                                 Frence
                                             </option>
@@ -460,6 +457,7 @@
                                             <div id="country_mobile" class="select"><img src="{{ asset('' . session('delivery_country_asset') . '') }}" height="17px" width="25px" class="flagstrap-icon"> {{ session('delivery_country') }}</div>
                                             <div id="country_mobile-drop" class="dropdown">
                                                 <ul>
+                                                    <li data-cid="c32" data-country="Tunisia"><img src="{{ asset('assets/images/icons/country_flag/flag-of-Tunisia.jpg') }}" height="17px" width="25px" class="flagstrap-icon"> Tunisia</li>
                                                     <li data-cid="c32" data-country="Turkey"><img src="{{ asset('assets/images/icons/country_flag/flag-of-Turkey.jpg') }}" height="17px" width="25px" class="flagstrap-icon"> Turkey</li>
                                                     <li data-cid="c32" data-country="Germany"><img src="{{ asset('assets/images/icons/country_flag/flag-of-Germany.jpg') }}" height="17px" width="25px" class="flagstrap-icon"> Germany</li>
                                                     <li data-cid="c32" data-country="Austria"><img src="{{ asset('assets/images/icons/country_flag/flag-of-Austria.jpg') }}" height="17px" width="25px" class="flagstrap-icon"> Austria</li>
@@ -496,7 +494,7 @@
                                     <div class="input_row select_row">
                                         <label for="">{{ __('auth.select_curency') }}</label>
                                         <select class="niceSelect">
-                                            <option value="tl" selected>TL</option>
+                                            <option value="TND" selected>TND</option>
                                         </select>
                                     </div>
                                 </form>
@@ -818,9 +816,6 @@
                                                     <option value="en"
                                                         {{ app()->getLocale() == 'en' ? 'selected' : '' }}>English
                                                     </option>
-                                                    <option value="tur"
-                                                        {{ app()->getLocale() == 'tur' ? 'selected' : '' }}>Turkish
-                                                    </option>
                                                     <option value="fr"
                                                         {{ app()->getLocale() == 'fr' ? 'selected' : '' }}>Frence
                                                     </option>
@@ -833,6 +828,7 @@
                                                     <div id="country" class="select"><img src="{{ asset('' . session('delivery_country_asset') . '') }}" height="17px" width="25px" class="flagstrap-icon"> {{ session('delivery_country') }}</div>
                                                     <div id="country-drop" class="dropdown">
                                                         <ul>
+                                                            <li data-cid="c32" data-country="Tunisia"><img src="{{ asset('assets/images/icons/country_flag/flag-of-Tunisia.jpg') }}" height="17px" width="25px" class="flagstrap-icon"> Tunisia</li>
                                                             <li data-cid="c32" data-country="Turkey"><img src="{{ asset('assets/images/icons/country_flag/flag-of-Turkey.jpg') }}" height="17px" width="25px" class="flagstrap-icon"> Turkey</li>
                                                             <li data-cid="c32" data-country="Germany"><img src="{{ asset('assets/images/icons/country_flag/flag-of-Germany.jpg') }}" height="17px" width="25px" class="flagstrap-icon"> Germany</li>
                                                             <li data-cid="c32" data-country="Austria"><img src="{{ asset('assets/images/icons/country_flag/flag-of-Austria.jpg') }}" height="17px" width="25px" class="flagstrap-icon"> Austria</li>
@@ -869,7 +865,7 @@
                                             <div class="input_row select_row">
                                                 <label for="">{{ __('auth.select_curency') }}</label>
                                                 <select class="niceSelect">
-                                                    <option value="tl" selected>TL</option>
+                                                    <option value="TND" selected>TND</option>
                                                 </select>
                                             </div>
                                         </form>

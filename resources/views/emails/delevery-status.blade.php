@@ -368,7 +368,7 @@
                                 text-align: center;
                                 color: #424c60;
                               ">
-                            ₺{{ product($item->product_id)->unit_price }}
+                            TND {{ product($item->product_id)->unit_price }}
                           </h4>
                         </td>
                       </tr>
@@ -395,7 +395,7 @@
                                 text-align: center;
                                 color: #424c60;
                               ">
-                            ₺{{ $item->total }}
+                            TND {{ $item->total }}
                           </h5>
                         </td>
                       </tr>
@@ -423,7 +423,7 @@
                                 padding-top: 6px;
                                 border-top: 1.5px solid #f7f7f7;
                               ">
-                            ₺{{ order($item->order_id)->grand_total }}
+                            TND {{ order($item->order_id)->grand_total }}
                           </h5>
                         </td>
                       </tr>

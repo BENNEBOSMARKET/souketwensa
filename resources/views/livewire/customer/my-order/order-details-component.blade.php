@@ -133,7 +133,7 @@
                                                 <h5>{{ $orderDetail->quantity }}</h5>
                                             </td>
                                             <td>
-                                                <h5>₺{{ $orderDetail->price }}</h5>
+                                                <h5>TND {{ $orderDetail->price }}</h5>
                                             </td>
                                             <td> 
                                                 @if (order($orderDetail->order_id)->delivery_status == 'delivered')
@@ -174,15 +174,15 @@
                                 <ul>
                                     <li>
                                         <h3>{{ __('customer.subtotal') }}</h3>
-                                        <h4>₺{{ $orderDetails->sum('total') }}</h4>
+                                        <h4>TND {{ $orderDetails->sum('total') }}</h4>
                                     </li>
                                     <li>
                                         <h3>{{ __('customer.discount') }}</h3>
-                                        <h4>₺{{ order($orderDetail->order_id)->discount }}</h4>
+                                        <h4>TND {{ order($orderDetail->order_id)->discount }}</h4>
                                     </li>
                                     <li>
                                         <h3>{{ __('customer.coupon') }}</h3>
-                                        <h4>₺{{ order($orderDetail->order_id)->coupon_discount }}</h4>
+                                        <h4>TND {{ order($orderDetail->order_id)->coupon_discount }}</h4>
                                     </li>
 
                                     @if (order($orderDetail->order_id)->points_used > 0)
@@ -195,7 +195,7 @@
                                 <div class="order_summery_divider"></div>
                                 <div class="total_ammout_area d-flex align-items-center justify-content-between g-sm">
                                     <h3>{{ __('customer.total') }}</h3>
-                                    <h4>₺{{ order($orderDetail->order_id)->grand_total }}</h4>
+                                    <h4>TND {{ order($orderDetail->order_id)->grand_total }}</h4>
                                 </div>
                             </div>
                         </div>

@@ -139,29 +139,29 @@
                         <div class="selectbox_row skeleton_single_text" wire:ignore>
                             <select id="sortByPriceRange" wire:model='sortByPriceRange' class="niceSelect">
                                 <option value="">{{ __('auth.product_all') }}</option>
-                                <option value="10,50">₺10-₺50</option>
-                                <option value="51,100">₺51-₺100</option>
-                                <option value="101,150">₺101-₺150</option>
-                                <option value="151,200">₺151-₺200</option>
-                                <option value="201,250">₺201-₺250</option>
-                                <option value="251,300">₺251-₺300</option>
-                                <option value="301,350">₺301-₺350</option>
-                                <option value="351,400">₺351-₺400</option>
-                                <option value="401,450">₺401-₺450</option>
-                                <option value="451,500">₺451-₺500</option>
-                                <option value="501,550">₺501-₺550</option>
-                                <option value="551,600">₺551-₺600</option>
-                                <option value="601,650">₺601-₺650</option>
-                                <option value="651,700">₺651-₺700</option>
-                                <option value="701,750">₺701-₺750</option>
-                                <option value="751,800">₺751-₺800</option>
-                                <option value="801,450">₺801-₺850</option>
-                                <option value="851,900">₺851-₺900</option>
-                                <option value="901,950">₺901-₺950</option>
-                                <option value="951,1000">₺951-₺1000</option>
-                                <option value="1001,1500">₺1001-₺1500</option>
-                                <option value="1551,2000">₺1551-₺2000</option>
-                                <option value="2000,10000000"> >₺2000</option>
+                                <option value="10,50">TND 10-TND 50</option>
+                                <option value="51,100">TND 51-TND 100</option>
+                                <option value="101,150">TND 101-TND 150</option>
+                                <option value="151,200">TND 151-TND 200</option>
+                                <option value="201,250">TND 201-TND 250</option>
+                                <option value="251,300">TND 251-TND 300</option>
+                                <option value="301,350">TND 301-TND 350</option>
+                                <option value="351,400">TND 351-TND 400</option>
+                                <option value="401,450">TND 401-TND 450</option>
+                                <option value="451,500">TND 451-TND 500</option>
+                                <option value="501,550">TND 501-TND 550</option>
+                                <option value="551,600">TND 551-TND 600</option>
+                                <option value="601,650">TND 601-TND 650</option>
+                                <option value="651,700">TND 651-TND 700</option>
+                                <option value="701,750">TND 701-TND 750</option>
+                                <option value="751,800">TND 751-TND 800</option>
+                                <option value="801,450">TND 801-TND 850</option>
+                                <option value="851,900">TND 851-TND 900</option>
+                                <option value="901,950">TND 901-TND 950</option>
+                                <option value="951,1000">TND 951-TND 1000</option>
+                                <option value="1001,1500">TND 1001-TND 1500</option>
+                                <option value="1551,2000">TND 1551-TND 2000</option>
+                                <option value="2000,10000000"> >TND 2000</option>
                             </select>
                         </div>
                     </form>
@@ -266,14 +266,14 @@
                                         @if ($product->discount > 0)
                                             <div class="product_price product_price_side">
                                                 <div class="percentage_offer">{{ $product->discount }}%</div>
-                                                <h4>₺{{ discountPrice($product->id) }}</h4>
+                                                <h4>TND {{ discountPrice($product->id) }}</h4>
                                                 <h4 class="discount_price">
-                                                    <del>₺{{ $product->unit_price }}</del>
+                                                    <del>TND {{ $product->unit_price }}</del>
                                                 </h4>
                                             </div>
                                         @else
                                             <div class="product_price product_price_side">
-                                                <h4>₺{{ $product->unit_price }}</h4>
+                                                <h4>TND {{ $product->unit_price }}</h4>
                                             </div>
                                         @endif
 

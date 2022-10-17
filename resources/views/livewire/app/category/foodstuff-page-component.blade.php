@@ -106,8 +106,8 @@
                                     product_review($foodstaff->id) }})</span>
                             </div>
                                 <div class="prodcut_price d-flex align-items-center flex-wrap-wrap">
-                                    <h5>₺{{ discountPrice($foodstaff->id) }}</h5>
-                                    <h5><del>₺{{ $foodstaff->unit_price }}</del></h5>
+                                    <h5>TND {{ discountPrice($foodstaff->id) }}</h5>
+                                    <h5><del>TND {{ $foodstaff->unit_price }}</del></h5>
                                 </div>
                             </div>
                         </div>
