@@ -103,7 +103,7 @@
                                                         @endif
 
                                                     </li>
-                                                    <li class="car_product_price">₺{{ $cartItm->price }}</li>
+                                                    <li class="car_product_price">TND {{ $cartItm->price }}</li>
                                                 </ul>
                                             </div>
                                             <div class="cart_delete_increase">
@@ -173,15 +173,15 @@
                         <ul class="order_summer_list">
                             <li>
                                 <h4>{{ __('auth.subtotal') }} ({{ $totalItem }} Items)</h4>
-                                <h5>₺{{ round($subtotal, 2) }}</h5>
+                                <h5>TND {{ round($subtotal, 2) }}</h5>
                             </li>
                             <li>
                                 <h4>{{ __('auth.discount') }}</h4>
-                                <h5>₺{{ round($totalDiscount, 2) }}</h5>
+                                <h5>TND {{ round($totalDiscount, 2) }}</h5>
                             </li>
                             <li>
                                 <h4>{{ __('auth.shipping_fee') }}</h4>
-                                <h5>₺{{ round($shippingfee, 2) }}</h5>
+                                <h5>TND {{ round($shippingfee, 2) }}</h5>
                             </li>
                             @if (session('coupon'))
                                 <li>
@@ -193,7 +193,7 @@
 
                             <li>
                                 <h4><b>{{ __('auth.total') }}</b></h4>
-                                <h5><b>₺{{ round($grandTotal, 2) }}</b></h5>
+                                <h5><b>TND {{ round($grandTotal, 2) }}</b></h5>
                             </li>
                         </ul>
 

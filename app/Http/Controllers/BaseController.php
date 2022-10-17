@@ -24,6 +24,10 @@ class BaseController extends Controller
     public function changeCountry($country)
     {
         $asset = '';
+        
+        if($country == 'Tunisia'){
+            $asset = 'assets/images/icons/country_flag/flag-of-Tunisia.jpg';
+        }
         if($country == 'Turkey'){
             $asset = 'assets/images/icons/country_flag/flag-of-Turkey.jpg';
         }

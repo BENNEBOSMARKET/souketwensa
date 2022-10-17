@@ -88,8 +88,8 @@
                                     product_review($topProduct->id) }})</span>
                             </div>
                                 <div class="prodcut_price d-flex align-items-center flex-wrap-wrap">
-                                    <h5>₺{{ discountPrice($topProduct->id) }}</h5>
-                                    <h5><del>₺{{ $topProduct->unit_price }}</del></h5>
+                                    <h5>TND {{ discountPrice($topProduct->id) }}</h5>
+                                    <h5><del>TND {{ $topProduct->unit_price }}</del></h5>
                                 </div>
                             </div>
                         </div>

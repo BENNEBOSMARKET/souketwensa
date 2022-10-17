@@ -101,8 +101,8 @@
                                     </div>
 
                                     <div class="product_price product_price_side">
-                                        <h4>₺{{ discountPrice($discount->id) }}</h4>
-                                        <h5 class="discount_price"><del>₺{{ $discount->unit_price }}</del></h5>
+                                        <h4>TND {{ discountPrice($discount->id) }}</h4>
+                                        <h5 class="discount_price"><del>TND {{ $discount->unit_price }}</del></h5>
                                     </div>
                                 </div>
                             </div>

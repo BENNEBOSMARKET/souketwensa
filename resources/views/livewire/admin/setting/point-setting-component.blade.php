@@ -74,7 +74,7 @@
                                     = 
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="">TL (₺)</label>
+                                    <label for="">TL (TND )</label>
                                     <input class="form-control" type="text" wire:model="point_value">
                                     @error('point_value')
                                         <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>

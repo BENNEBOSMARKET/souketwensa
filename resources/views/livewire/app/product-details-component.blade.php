@@ -40,7 +40,7 @@
                             @else
                             @endif
                         </h4>
-                        <h5>₺{{ $product->unit_price }}</h5>
+                        <h5>TND {{ $product->unit_price }}</h5>
                     </div>
                 </div>
                 <ul class="topbra_product_list d-flex align-items-center justify-content-end flex-wrap-wrap g-sm">
@@ -216,7 +216,7 @@
                             <div class="product_details_item">
                                 <h4>Price:</h4>
                                 <h3>
-                                    ₺@if ($color_price != '')
+                                    TND @if ($color_price != '')
                                         {{ $color_price }}
                                     @else
                                         {{ $product->unit_price }}
@@ -499,14 +499,14 @@
                                         @if ($popularProduct->discount > 0)
                                             <div class="product_price product_price_side">
                                                 <div class="percentage_offer">{{ $popularProduct->discount }}%</div>
-                                                <h4>₺{{ discountPrice($popularProduct->id) }}</h4>
+                                                <h4>TND {{ discountPrice($popularProduct->id) }}</h4>
                                                 <h4 class="discount_price">
-                                                    <del>₺{{ $popularProduct->unit_price }}</del>
+                                                    <del>TND {{ $popularProduct->unit_price }}</del>
                                                 </h4>
                                             </div>
                                         @else
                                             <div class="product_price product_price_side">
-                                                <h4>₺{{ $popularProduct->unit_price }}</h4>
+                                                <h4>TND {{ $popularProduct->unit_price }}</h4>
                                             </div>
                                         @endif
 
@@ -580,14 +580,14 @@
                             @if ($similarProduct->discount > 0)
                                 <div class="product_price product_price_side">
                                     <div class="percentage_offer">{{ $similarProduct->discount }}%</div>
-                                    <h4>₺{{ discountPrice($similarProduct->id) }}</h4>
+                                    <h4>TND {{ discountPrice($similarProduct->id) }}</h4>
                                     <h4 class="discount_price">
-                                        <del>₺{{ $similarProduct->unit_price }}</del>
+                                        <del>TND {{ $similarProduct->unit_price }}</del>
                                     </h4>
                                 </div>
                             @else
                                 <div class="product_price product_price_side">
-                                    <h4>₺{{ $similarProduct->unit_price }}</h4>
+                                    <h4>TND {{ $similarProduct->unit_price }}</h4>
                                 </div>
                             @endif
 
@@ -844,14 +844,14 @@
                                     @if ($supplierPoduct->discount > 0)
                                         <div class="product_price product_price_side">
                                             <div class="percentage_offer">{{ $supplierPoduct->discount }}%</div>
-                                            <h4>₺{{ discountPrice($supplierPoduct->id) }}</h4>
+                                            <h4>TND {{ discountPrice($supplierPoduct->id) }}</h4>
                                             <h4 class="discount_price">
-                                                <del>₺{{ $supplierPoduct->unit_price }}</del>
+                                                <del>TND {{ $supplierPoduct->unit_price }}</del>
                                             </h4>
                                         </div>
                                     @else
                                         <div class="product_price product_price_side">
-                                            <h4>₺{{ $supplierPoduct->unit_price }}</h4>
+                                            <h4>TND {{ $supplierPoduct->unit_price }}</h4>
                                         </div>
                                     @endif
 

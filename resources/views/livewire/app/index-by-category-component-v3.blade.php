@@ -66,15 +66,15 @@
                                             @if ($deal->discount > 0)
                                                 <div class="product_price product_price_side">
                                                     <div class="percentage_offer">{{ $deal->discount }}%</div>
-                                                    <h4>₺{{ calculateDiscount($deal->unit_price, $deal->discount) }}
+                                                    <h4>TND {{ calculateDiscount($deal->unit_price, $deal->discount) }}
                                                     </h4>
                                                     <h4 class="discount_price">
-                                                        <del>₺{{ $deal->unit_price }}</del>
+                                                        <del>TND {{ $deal->unit_price }}</del>
                                                     </h4>
                                                 </div>
                                             @else
                                                 <div class="product_price product_price_side">
-                                                    <h4>₺{{ $deal->unit_price }}</h4>
+                                                    <h4>TND {{ $deal->unit_price }}</h4>
                                                 </div>
                                             @endif
                                             <div class="product_review_img_area d-flex align-items-center">
@@ -209,15 +209,15 @@
                                         @if ($bestSelling->discount > 0)
                                             <div class="product_price product_price_side">
                                                 <div class="percentage_offer">{{ $bestSelling->discount }}%</div>
-                                                <h4>₺{{ calculateDiscount($bestSelling->unit_price, $bestSelling->discount) }}
+                                                <h4>TND {{ calculateDiscount($bestSelling->unit_price, $bestSelling->discount) }}
                                                 </h4>
                                                 <h4 class="discount_price">
-                                                    <del>₺{{ $bestSelling->unit_price }}</del>
+                                                    <del>TND {{ $bestSelling->unit_price }}</del>
                                                 </h4>
                                             </div>
                                         @else
                                             <div class="product_price product_price_side">
-                                                <h4>₺{{ $bestSelling->unit_price }}</h4>
+                                                <h4>TND {{ $bestSelling->unit_price }}</h4>
                                             </div>
                                         @endif
                                     </div>
@@ -285,15 +285,15 @@
                                                     class="product_price product_price_side d-flex align-items-center justify-content-between flex-wrap-wrap g-sm">
                                                     @if ($new_arrival->discount > 0)
                                                         <div class="price_area d-flex align-items-center">
-                                                            <h4>₺{{ calculateDiscount($new_arrival->unit_price, $new_arrival->discount) }}
+                                                            <h4>TND {{ calculateDiscount($new_arrival->unit_price, $new_arrival->discount) }}
                                                             </h4>
                                                             <h4 class="discount_price">
-                                                                <del>₺{{ $new_arrival->unit_price }}</del>
+                                                                <del>TND {{ $new_arrival->unit_price }}</del>
                                                             </h4>
                                                         </div>
                                                     @else
                                                         <div class="product_price product_price_side">
-                                                            <h4>₺{{ $new_arrival->unit_price }}</h4>
+                                                            <h4>TND {{ $new_arrival->unit_price }}</h4>
                                                         </div>
                                                     @endif
 
@@ -340,15 +340,15 @@
                                                     class="product_price product_price_side d-flex align-items-center justify-content-between flex-wrap-wrap g-sm">
                                                     @if ($top_product->discount > 0)
                                                         <div class="price_area d-flex align-items-center">
-                                                            <h4>₺{{ calculateDiscount($top_product->unit_price, $top_product->discount) }}
+                                                            <h4>TND {{ calculateDiscount($top_product->unit_price, $top_product->discount) }}
                                                             </h4>
                                                             <h4 class="discount_price">
-                                                                <del>₺{{ $top_product->unit_price }}</del>
+                                                                <del>TND {{ $top_product->unit_price }}</del>
                                                             </h4>
                                                         </div>
                                                     @else
                                                         <div class="product_price product_price_side">
-                                                            <h4>₺{{ $top_product->unit_price }}</h4>
+                                                            <h4>TND {{ $top_product->unit_price }}</h4>
                                                         </div>
                                                     @endif
                                                     <div class="category_ion">
@@ -396,15 +396,15 @@
                                                     class="product_price product_price_side d-flex align-items-center justify-content-between flex-wrap-wrap g-sm">
                                                     @if ($dropshipping->discount > 0)
                                                         <div class="price_area d-flex align-items-center">
-                                                            <h4>₺{{ calculateDiscount($dropshipping->unit_price, $dropshipping->discount) }}
+                                                            <h4>TND {{ calculateDiscount($dropshipping->unit_price, $dropshipping->discount) }}
                                                             </h4>
                                                             <h4 class="discount_price">
-                                                                <del>₺{{ $dropshipping->unit_price }}</del>
+                                                                <del>TND {{ $dropshipping->unit_price }}</del>
                                                             </h4>
                                                         </div>
                                                     @else
                                                         <div class="product_price product_price_side">
-                                                            <h4>₺{{ $dropshipping->unit_price }}</h4>
+                                                            <h4>TND {{ $dropshipping->unit_price }}</h4>
                                                         </div>
                                                     @endif
 
@@ -450,15 +450,15 @@
                                                     class="product_price product_price_side d-flex align-items-center justify-content-between flex-wrap-wrap g-sm">
                                                     @if ($opportunity->discount > 0)
                                                         <div class="price_area d-flex align-items-center">
-                                                            <h4>₺{{ calculateDiscount($opportunity->unit_price, $opportunity->discount) }}
+                                                            <h4>TND {{ calculateDiscount($opportunity->unit_price, $opportunity->discount) }}
                                                             </h4>
                                                             <h4 class="discount_price">
-                                                                <del>₺{{ $opportunity->unit_price }}</del>
+                                                                <del>TND {{ $opportunity->unit_price }}</del>
                                                             </h4>
                                                         </div>
                                                     @else
                                                         <div class="product_price product_price_side">
-                                                            <h4>₺{{ $opportunity->unit_price }}</h4>
+                                                            <h4>TND {{ $opportunity->unit_price }}</h4>
                                                         </div>
                                                     @endif
 
@@ -567,15 +567,15 @@
 
                                                         @if ($bestDeal->discount > 0)
                                                             <div class="product_price product_price_side">
-                                                                <h4>₺{{ calculateDiscount($bestDeal->unit_price, $bestDeal->discount) }}
+                                                                <h4>TND {{ calculateDiscount($bestDeal->unit_price, $bestDeal->discount) }}
                                                                 </h4>
                                                                 <h4 class="discount_price">
-                                                                    <del>₺{{ $bestDeal->unit_price }}</del>
+                                                                    <del>TND {{ $bestDeal->unit_price }}</del>
                                                                 </h4>
                                                             </div>
                                                         @else
                                                             <div class="product_price product_price_side">
-                                                                <h4>₺{{ $bestDeal->unit_price }}</h4>
+                                                                <h4>TND {{ $bestDeal->unit_price }}</h4>
                                                             </div>
                                                         @endif
                                                     </div>
@@ -614,15 +614,15 @@
                                                         </div>
                                                         @if ($bdNewArrival->discount > 0)
                                                             <div class="product_price product_price_side">
-                                                                <h4>₺{{ calculateDiscount($bdNewArrival->unit_price, $bdNewArrival->discount) }}
+                                                                <h4>TND {{ calculateDiscount($bdNewArrival->unit_price, $bdNewArrival->discount) }}
                                                                 </h4>
                                                                 <h4 class="discount_price">
-                                                                    <del>₺{{ $bdNewArrival->unit_price }}</del>
+                                                                    <del>TND {{ $bdNewArrival->unit_price }}</del>
                                                                 </h4>
                                                             </div>
                                                         @else
                                                             <div class="product_price product_price_side">
-                                                                <h4>₺{{ $bdNewArrival->unit_price }}</h4>
+                                                                <h4>TND {{ $bdNewArrival->unit_price }}</h4>
                                                             </div>
                                                         @endif
                                                     </div>
@@ -662,15 +662,15 @@
 
                                                         @if ($bdMostViewed->discount > 0)
                                                             <div class="product_price product_price_side">
-                                                                <h4>₺{{ calculateDiscount($bdMostViewed->unit_price, $bdMostViewed->discount) }}
+                                                                <h4>TND {{ calculateDiscount($bdMostViewed->unit_price, $bdMostViewed->discount) }}
                                                                 </h4>
                                                                 <h4 class="discount_price">
-                                                                    <del>₺{{ $bdMostViewed->unit_price }}</del>
+                                                                    <del>TND {{ $bdMostViewed->unit_price }}</del>
                                                                 </h4>
                                                             </div>
                                                         @else
                                                             <div class="product_price product_price_side">
-                                                                <h4>₺{{ $bdMostViewed->unit_price }}</h4>
+                                                                <h4>TND {{ $bdMostViewed->unit_price }}</h4>
                                                             </div>
                                                         @endif
                                                     </div>
@@ -710,15 +710,15 @@
 
                                                         @if ($bdDealOfSeason->discount > 0)
                                                             <div class="product_price product_price_side">
-                                                                <h4>₺{{ calculateDiscount($bdDealOfSeason->unit_price, $bdDealOfSeason->discount) }}
+                                                                <h4>TND {{ calculateDiscount($bdDealOfSeason->unit_price, $bdDealOfSeason->discount) }}
                                                                 </h4>
                                                                 <h4 class="discount_price">
-                                                                    <del>₺{{ $bdDealOfSeason->unit_price }}</del>
+                                                                    <del>TND {{ $bdDealOfSeason->unit_price }}</del>
                                                                 </h4>
                                                             </div>
                                                         @else
                                                             <div class="product_price product_price_side">
-                                                                <h4>₺{{ $bdDealOfSeason->unit_price }}</h4>
+                                                                <h4>TND {{ $bdDealOfSeason->unit_price }}</h4>
                                                             </div>
                                                         @endif
                                                     </div>
@@ -757,15 +757,15 @@
                                                         </div>
                                                         @if ($bdBigNeeds->discount > 0)
                                                             <div class="product_price product_price_side">
-                                                                <h4>₺{{ calculateDiscount($bdBigNeeds->unit_price, $bdBigNeeds->discount) }}
+                                                                <h4>TND {{ calculateDiscount($bdBigNeeds->unit_price, $bdBigNeeds->discount) }}
                                                                 </h4>
                                                                 <h4 class="discount_price">
-                                                                    <del>₺{{ $bdBigNeeds->unit_price }}</del>
+                                                                    <del>TND {{ $bdBigNeeds->unit_price }}</del>
                                                                 </h4>
                                                             </div>
                                                         @else
                                                             <div class="product_price product_price_side">
-                                                                <h4>₺{{ $bdBigNeeds->unit_price }}</h4>
+                                                                <h4>TND {{ $bdBigNeeds->unit_price }}</h4>
                                                             </div>
                                                         @endif
                                                     </div>
@@ -804,15 +804,15 @@
                                                         </div>
                                                         @if ($bdBigQuantity->discount > 0)
                                                             <div class="product_price product_price_side">
-                                                                <h4>₺{{ calculateDiscount($bdBigQuantity->unit_price, $bdBigQuantity->discount) }}
+                                                                <h4>TND {{ calculateDiscount($bdBigQuantity->unit_price, $bdBigQuantity->discount) }}
                                                                 </h4>
                                                                 <h4 class="discount_price">
-                                                                    <del>₺{{ $bdBigQuantity->unit_price }}</del>
+                                                                    <del>TND {{ $bdBigQuantity->unit_price }}</del>
                                                                 </h4>
                                                             </div>
                                                         @else
                                                             <div class="product_price product_price_side">
-                                                                <h4>₺{{ $bdBigQuantity->unit_price }}</h4>
+                                                                <h4>TND {{ $bdBigQuantity->unit_price }}</h4>
                                                             </div>
                                                         @endif
                                                     </div>
@@ -911,15 +911,15 @@
                                                         @if ($subCatProduct->discount > 0)
                                                             <div class="product_price product_price_side">
                                                                 <div class="percentage_offer">{{ $subCatProduct->discount }}%</div>
-                                                                <h4>₺{{ calculateDiscount($subCatProduct->unit_price, $subCatProduct->discount) }}
+                                                                <h4>TND {{ calculateDiscount($subCatProduct->unit_price, $subCatProduct->discount) }}
                                                                 </h4>
                                                                 <h4 class="discount_price">
-                                                                    <del>₺{{ $subCatProduct->unit_price }}</del>
+                                                                    <del>TND {{ $subCatProduct->unit_price }}</del>
                                                                 </h4>
                                                             </div>
                                                         @else
                                                             <div class="product_price product_price_side">
-                                                                <h4>₺{{ $subCatProduct->unit_price }}</h4>
+                                                                <h4>TND {{ $subCatProduct->unit_price }}</h4>
                                                             </div>
                                                             <br>
                                                         @endif
