@@ -8,6 +8,7 @@ use App\Http\Livewire\Admin\Category\SubSubCategoryComponent;
 use App\Http\Livewire\Admin\DashboardComponent;
 use App\Http\Livewire\Admin\Product\ProductComponent;
 use App\Http\Livewire\Admin\Setting\Color\ColorComponent;
+use App\Http\Livewire\Admin\Administrator\SubAdminComponent;
 use App\Http\Livewire\Admin\Customer\CustomerComponent;
 use App\Http\Livewire\Admin\Customer\CustomerProfileComponent;
 use App\Http\Livewire\Admin\Seller\SellerComponent;
@@ -148,6 +149,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth:admin')->group(function
     // Customer
     Route::get('/user-management/customer/list', CustomerComponent::class)->name('customersList');
     Route::get('/user-management/customer/profile/{id}', CustomerProfileComponent::class)->name('customer.profile');
+    Route::get('/user-management/subadmin/list', SubAdminComponent::class)->name('sub.admins');
 
     // Seller
     Route::get('/seller/all-seller', SellerComponent::class)->name('sellerList');

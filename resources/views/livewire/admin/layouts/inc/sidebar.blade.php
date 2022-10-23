@@ -28,10 +28,12 @@
                 <div class="collapse navbar-collapse tab-content" id="sidebarCollapse">
                     
                     <ul class="navbar-nav tab-pane active" id="Main" role="tabpanel">
+                        @if(auth()->user()->role != "sub-admin" )
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.home') }}"><i
                                     class="ti ti-dashboard menu-icon"></i><span>Dashboard</span></a>
                         </li>
+                        @endif
 
                         <!-- Products -->
                         <li class="nav-item">
@@ -43,11 +45,14 @@
                             <div class="collapse {{ request()->is('admin/products') || request()->is('admin/products/*') ? 'show' : '' }}"
                                 id="sidebarProducts">
                                 <ul class="nav flex-column">
+                                    @if(auth()->user()->role != "sub-admin" )
                                     <li class="nav-item">
                                         <a href="{{ route('admin.addProduct') }}"
                                             class="nav-link {{ request()->is('admin/products/add-new-product') || request()->is('admin/products/add-new-product/*') ? 'active' : '' }}">Add
                                             New Product</a>
                                     </li>
+                                    @endif
+
                                     <li class="nav-item">
                                         <a href="{{ route('admin.products') }}"
                                             class="nav-link {{ request()->is('admin/products') || request()->is('admin/products/edit-product/*') ? 'active' : '' }}">All
@@ -58,6 +63,7 @@
                                             class="nav-link {{ request()->is('admin/pending/products') || request()->is('admin/pending/products/edit-product/*') ? 'active' : '' }}">Pending
                                             Products</a>
                                     </li>
+                                    @if(auth()->user()->role != "sub-admin" )
                                     <li class="nav-item">
                                         <a href="{{ route('admin.brands') }}"
                                             class="nav-link {{ request()->is('admin/brands') || request()->is('admin/brands/edit-product') ? 'active' : '' }}">Brands</a>
@@ -83,10 +89,11 @@
                                             class="nav-link {{ request()->is('admin/deals-of-day') || request()->is('admin/deals-of-day') ? 'active' : '' }}">Deals
                                             Of The Day</a>
                                     </li>
+                                    @endif
                                 </ul>
                             </div>
                         </li>
-
+                        @if(auth()->user()->role != "sub-admin" )
                         <!-- Categories -->
                         <li class="nav-item">
                             <a class="nav-link" href="#sidebarCategory" data-bs-toggle="collapse" role="button"
@@ -145,7 +152,7 @@
                                 </ul>
                             </div>
                         </li>
-
+                        @endif
                         <!-- Sellers -->
                         <li class="nav-item">
                             <a class="nav-link" href="#sidebarSeller" data-bs-toggle="collapse" role="button"
@@ -161,6 +168,7 @@
                                             class="nav-link {{ request()->is('admin/seller/list') || request()->is('admin/seller/list/*') ? 'active' : '' }}">All
                                             Seller</a>
                                     </li>
+                                    @if(auth()->user()->role != "sub-admin" )
                                     <li class="nav-item">
                                         <a href="{{ route('admin.payout') }}"
                                             class="nav-link {{ request()->is('admin/payout') || request()->is('admin/payout/*') ? 'active' : '' }}">Payouts</a>
@@ -173,10 +181,11 @@
                                     <li class="nav-item">
                                         <a href="{{ route('admin.commission.history') }}#" class="nav-link {{ request()->is('admin/commission-history') || request()->is('admin/commission-history/*') ? 'active' : '' }}">Seller Commision</a>
                                     </li>
+                                    @endif
                                 </ul>
                             </div>
                         </li>
-
+                        @if(auth()->user()->role != "sub-admin" )
                         <!-- User Management -->
                         <li class="nav-item">
                             <a class="nav-link" href="#sidebarUser" data-bs-toggle="collapse" role="button"
@@ -195,6 +204,11 @@
                                     <li class="nav-item">
                                         <a href="{{ route('admin.administratorList') }}"
                                             class="nav-link {{ request()->is('admin/admin/list') || request()->is('admin/user-management/admin/list/*') ? 'active' : '' }}">Admin
+                                            List</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('admin.sub.admins') }}"
+                                            class="nav-link {{ request()->is('admin/subadmin/list') || request()->is('admin/user-management/subadmin/list/*') ? 'active' : '' }}">Sub-Admins
                                             List</a>
                                     </li>
                                 </ul>
@@ -263,7 +277,6 @@
                                 </ul>
                             </div>
                         </li>
-
                         <!-- Company Info -->
                         <li class="nav-item">
                             <a class="nav-link" href="#sidebarCompanyInfo" data-bs-toggle="collapse" role="button"
@@ -310,6 +323,7 @@
                                 </ul>
                             </div>
                         </li>
+                        @endif
 
                         <!-- Blogs -->
                         <li class="nav-item">
@@ -332,7 +346,7 @@
                                 </ul>
                             </div>
                         </li>
-
+                        @if(auth()->user()->role != "sub-admin" )
                         <!-- Marketing -->
                         <li class="nav-item">
                             <a class="nav-link" href="#sidebarMarketing" data-bs-toggle="collapse" role="button"
@@ -465,10 +479,10 @@
                                     </li>
 
                                     <li
-                                    class="nav-item {{ request()->is('admin/cms/right-grid-banner/') || request()->is('admin/cms/right-grid-banner/*') ? 'active' : '' }}">
-                                    <a href="{{ route('admin.right-grid-banner') }}" class="nav-link">Right Grid Banner</a>
+                                        class="nav-item {{ request()->is('admin/cms/right-grid-banner/') || request()->is('admin/cms/right-grid-banner/*') ? 'active' : '' }}">
+                                        <a href="{{ route('admin.right-grid-banner') }}" class="nav-link">Right Grid Banner</a>
                                     </li>
-                                    
+
                                     <li
                                         class="nav-item {{ request()->is('admin/cms/bottom-banner/') || request()->is('admin/cms/bottom-banner/*') ? 'active' : '' }}">
                                         <a href="{{ route('admin.bottom-banner') }}" class="nav-link">Bottom Banner</a>
@@ -585,6 +599,7 @@
                                 </ul>
                             </div>
                         </li>
+
                         {{-- Marketing Referral --}}
                         <li class="nav-item">
                             <a class="nav-link" href="#sidebar-referrals" data-bs-toggle="collapse" role="button"
@@ -603,6 +618,7 @@
                                 </ul>
                             </div>
                         </li>
+                        @endif
 
                     </ul>
                 </div>
