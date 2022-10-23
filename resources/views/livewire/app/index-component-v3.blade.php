@@ -481,9 +481,9 @@
         <div class="big_deals_inner_wrapper">
             <div class="my-container">
                 <div class="big_deals_slider_grid">
-                    {{-- <div class="best_big_text_deal_area tablinks3">
-                        <span> Best Big Deals</span>
-                    </div> --}}
+                    <div class="best_big_text_deal_area tablinks3">
+                        <span> Big Deals</span>
+                    </div>
                     <div class="slider_btn_tab_wrapper">
                         <div class="big_deals_slider_btn">
                             <!-- Swiper -->

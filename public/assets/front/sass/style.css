@@ -15268,3 +15268,6 @@ input[type=number] {
     max-width: 100%;
   }
 }/*# sourceMappingURL=style.css.map */
+.best_big_text_deal_area span {
+  font-size: 25px;
+}
