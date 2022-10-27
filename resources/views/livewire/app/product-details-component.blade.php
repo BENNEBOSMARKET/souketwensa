@@ -326,7 +326,7 @@
                                 {{-- {{ __('auth.gokhansok_urkey') }} --}}
                                 {{shop($product->user_id)->address}}, {{shop($product->user_id)->state_name}}, {{shop($product->user_id)->country_name}}  
                                 <img src="{{ shop($product->user_id)->country_flag }}"
-                                    alt="turkey flag" />
+                                    alt="Tunisia Flag" />
                             </p>
                         </div>
                     </div>
