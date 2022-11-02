@@ -888,9 +888,15 @@
                     <div class="swiper-wrapper">
                         @foreach ($allCategories as $category)
                             <div class="swiper-slide">
+                                @if($category->slug == "auto-moto-kxnrs")
+                                <a href="https://car.bennebosmarket.online"
+                                    class="tablinks2 @if (session('slugMsg') == $category->slug) tabActiveButton @endif"
+                                    style="text-transform: uppercase;">{{ $category->getTranslation('name') }}</a>
+                                @else
                                 <a href="{{ route('home.indexWithCategory', ['slug' => $category->slug]) }}"
                                     class="tablinks2 @if (session('slugMsg') == $category->slug) tabActiveButton @endif"
                                     style="text-transform: uppercase;">{{ $category->getTranslation('name') }}</a>
+                                @endif
                             </div>
                         @endforeach
                     </div>
