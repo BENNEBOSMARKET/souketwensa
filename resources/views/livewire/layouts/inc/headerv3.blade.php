@@ -892,6 +892,10 @@
                                 <a href="https://car.bennebosmarket.online"
                                     class="tablinks2 @if (session('slugMsg') == $category->slug) tabActiveButton @endif"
                                     style="text-transform: uppercase;">{{ $category->getTranslation('name') }}</a>
+                                @elseif($category->slug =="immobilier-d7az0")
+                                <a href="https://realestate.bennebosmarket.online"
+                                    class="tablinks2 @if (session('slugMsg') == $category->slug) tabActiveButton @endif"
+                                    style="text-transform: uppercase;">{{ $category->getTranslation('name') }}</a>
                                 @else
                                 <a href="{{ route('home.indexWithCategory', ['slug' => $category->slug]) }}"
                                     class="tablinks2 @if (session('slugMsg') == $category->slug) tabActiveButton @endif"
