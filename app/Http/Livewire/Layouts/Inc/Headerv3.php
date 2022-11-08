@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Layouts\Inc;
 
 use App\Models\Cart;
+use App\Models\Photo;
 use App\Models\Shop;
 use App\Models\Slider;
 use App\Models\Product;
@@ -132,12 +133,18 @@ class Headerv3 extends Component
         $popularSearches = Searches::select('query')->orderBy('count', 'DESC')->limit(25)->get();
 
         $topBanners = TopBanner::orderBy('id', 'DESC')->get();
-        $rightGridBanner = RightGridBanner::orderBy('id', 'DESC')->first();
-        if($rightGridBanner){
-            $rightGridBanner = $rightGridBanner->banner;
-        }else{
-            $rightGridBanner = "assets/front/images/home/hero_right_side_img.png";
+//        $rightGridBanner = RightGridBanner::orderBy('id', 'DESC')->first();
+//        if($rightGridBanner){
+//            $rightGridBanner = $rightGridBanner->banner;
+//        }else{
+//            $rightGridBanner = "assets/front/images/home/hero_right_side_img.png";
+//        }
+        if ($this->category_id != '') {
+            $rightGridBanner=Photo::where('category_id',$this->category_id)->where('place','slider-right-image')->first();
+    }else{
+            $rightGridBanner=Photo::where('category_id',null)->where('place','slider-right-image')->first();
         }
+
         $right_sliders = Product::where('right_slider', 1)
             ->select('slug', 'thumbnail')
             ->where('status', 1)

@@ -4,12 +4,16 @@ namespace App\Http\Livewire\Admin\Product;
 
 use App\Imports\ProductImport;
 use App\Imports\ProductImportV2;
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductImage;
+use App\Models\Seller;
+use App\Models\Shop;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 use Maatwebsite\Excel\Facades\Excel;
+use function PHPUnit\Framework\countOf;
 
 class ProductComponent extends Component
 {
@@ -100,8 +104,21 @@ class ProductComponent extends Component
 
     public function render()
     {
-        $products = Product::where('name', 'like', '%'.$this->searchTerm.'%')->orderBy('id', 'DESC')->paginate($this->sortingValue);
+        $products = Product::where('name', 'like', '%'.$this->searchTerm.'%')
+            ->orWhere('unit_price', 'LIKE', '%' . $this->searchTerm . '%');
 
+        $categories= Category::where('name', 'LIKE', '%' . $this->searchTerm . '%');
+        if ($this->searchTerm != '' and $categories->count()>0){
+            $categories=$categories->pluck('id');
+            if (count($categories)>0){
+                $products=$products->orWhereIn('category_id',$categories)->orderBy('created_at', 'DESC')->paginate($this->sortingValue);
+             }
+         }
+        else{
+            $products=$products->orderBy('created_at', 'DESC')->paginate($this->sortingValue);
+            if ($this->searchTerm != ''){
+            }
+        }
         return view('livewire.admin.product.product-component', ['products'=>$products])->layout('livewire.admin.layouts.base');
     }
 }

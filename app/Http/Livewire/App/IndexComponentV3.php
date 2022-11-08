@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\App;
 
 use App\Models\Cart;
+use App\Models\Photo;
 use App\Models\Product;
 use Livewire\Component;
 use App\Models\Category;
@@ -161,7 +162,7 @@ class IndexComponentV3 extends Component
         $subCategoryT_all = Category::select('id', 'slug', 'banner', 'name')
             ->where('parent_id', '!=', 0)
             ->where('sub_parent_id', 0)
-            
+
             ->paginate($this->paginateValue);
 
         $deals_of_day = DB::table('products')
@@ -195,7 +196,8 @@ class IndexComponentV3 extends Component
         $bd_deal_of_seasons = DB::table('products')->select('name', 'slug', 'thumbnail', 'unit_price', 'id', 'discount')->where('deal_of_season', 1)->where('status', 1)->limit(8)->get();
         $bd_big_needs = DB::table('products')->select('name', 'slug', 'thumbnail', 'unit_price', 'id', 'discount')->where('big_needs', 1)->where('status', 1)->limit(8)->get();
         $bd_big_quantity = DB::table('products')->select('name', 'slug', 'thumbnail', 'unit_price', 'id', 'discount')->where('big_quantity', 1)->where('status', 1)->limit(8)->get();
-        
+        $firstBannerPhoto=Photo::where('category_id',null)->where('place','first-banner')->first();
+        $secondBannerPhoto=Photo::where('category_id',null)->where('place','second-banner')->first();
         return [
             'new_arrivals' => $new_arrivals,
             'top_products' => $top_products,
@@ -215,6 +217,8 @@ class IndexComponentV3 extends Component
             'bd_big_needs' => $bd_big_needs,
             'bd_big_quantity' => $bd_big_quantity,
             'partners' => $partners,
+            'firstBannerPhoto'=>$firstBannerPhoto,
+            'secondBannerPhoto'=>$secondBannerPhoto
         ];
     }
 }

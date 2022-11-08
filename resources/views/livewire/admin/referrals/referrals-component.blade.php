@@ -121,7 +121,7 @@
                             <label for="example-text-input" class="col-sm-3 col-form-label">referral code</label>
                             <div class="col-sm-9">
                                 <input class="form-control" type="text" wire:model="referral_code" placeholder="Enter referral code">
-                                @error('slug')
+                                @error('referral_code')
                                     <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -165,7 +165,7 @@
                                 </label>
                             <div class="col-sm-9">
                                 <input class="form-control" type="text" wire:model="referral_code" placeholder="Enter referral code" />
-                                @error('commision_rate')
+                                @error('referral_code')
                                     <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>
                                 @enderror
                             </div>

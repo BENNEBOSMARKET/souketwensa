@@ -107,36 +107,13 @@ class ReferralComponent extends Component
     }
 
 
-    // public function deleteChild()
-    // {
-    //     $id = 281;
-    //     $categories = [$id];
-
-    //     $subCategories = Category::where('parent_id', $id)->where('sub_parent_id', 0)->pluck('id')->toArray();
-    //     $categories = array_merge($categories, $subCategories);
-    //     $subCategories = Category::whereIn('sub_parent_id', $categories)->pluck('id')->toArray();
-    //     $categories = array_merge($categories, $subCategories);
-
-
-    //     foreach($categories as $category){
-    //         $products = Product::where('category_id', $category)->get();
-    //         foreach($products as $product){
-    //             $pro = Product::find($product->id);
-    //             $pro->delete();
-    //         }
-
-    //         $category = Category::find($category);
-    //         $category->delete();
-    //     }
-
-    //     $this->dispatchBrowserEvent('success', ['message'=>'Deleted']);
-
-    // }
-
 
     public function render()
     {
-        $referrals = Referral::where('name', 'like', '%' . $this->searchTerm . '%')->paginate($this->sortingValue);
+        $referrals = Referral::where('name', 'like', '%' . $this->searchTerm . '%')
+            ->orWhere('referral_code', 'LIKE', '%' . $this->searchTerm . '%')
+            ->orWhere('sellers_count', 'LIKE', '%' . $this->searchTerm . '%')
+            ->orWhere('created_at', 'LIKE', '%' . $this->searchTerm . '%')->paginate($this->sortingValue);
         return view('livewire.admin.referrals.referrals-component', ['referrals' => $referrals])->layout('livewire.admin.layouts.base');
     }
 }
