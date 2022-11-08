@@ -28,7 +28,11 @@ class ReviewesComponent extends Component
 
     public function render()
     {
-        $productReviews = DB::table('reviews')->select('id', 'product_id', 'user_id', 'rating', 'comments', 'status')->orderBy('id', 'DESC')->paginate($this->sortingValue);
+        $productReviews = DB::table('reviews')->select('id', 'product_id', 'user_id', 'rating', 'comments', 'status')->
+       where('rating', 'LIKE', '%' . $this->searchTerm . '%')
+            ->orWhere('comment', 'LIKE', '%' . $this->searchTerm . '%')
+            ->orderBy('id', 'DESC')->paginate($this->sortingValue);
+
 
         return view('livewire.admin.product.review.reviewes-component', ['productReviews' => $productReviews])->layout('livewire.admin.layouts.base');
     }

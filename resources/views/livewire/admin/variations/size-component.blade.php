@@ -39,9 +39,27 @@
                                     <div class="card-body">
                                         <form wire:submit.prevent='storeData'>
                                             <div class="mb-3 row justify-content-center">
-                                                
+                                                <label for="example-text-input" class="col-sm-3 col-form-label">Product Type</label>
+                                                <div class="col-sm-8">
+                                                    <select class="form-control" wire:model="type_id">
+                                                        <option value="">Select Type</option>
+
+                                                        @foreach ($productType as $type)
+
+                                                            <option value="{{ $type->id }}">{{ $type->type }}</option>
+
+                                                        @endforeach
+
+                                                    </select>
+                                                    @error('type_id')
+                                                    <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row justify-content-center">
+                                                <label for="example-text-input" class="col-sm-3 col-form-label">Enter Size</label>
                                                 <div class="col-8">
-                                                    <label for="">Enter Size</label>
+
                                                     <input class="form-control" type="text" wire:model="size" placeholder="Enter size">
                                                     @error('size')
                                                         <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>
@@ -55,7 +73,7 @@
                                     </div>
                                 </div>
                             </div>
-                
+
                             <div class="col-lg-8">
                                 <div class="card">
                                     <div class="card-header">
@@ -65,6 +83,7 @@
                                         <table class="table table-md">
                                             <thead class="thead-light">
                                                 <tr>
+                                                    <th>Type</th>
                                                     <th>Size</th>
                                                     <th style="width: 10%;">Action</th>
                                                 </tr>
@@ -72,13 +91,14 @@
                                             <tbody>
                                                 @foreach ($productSize as $size)
                                                     <tr>
+                                                        <td>{{!is_null($size->productType)? $size->productType->type:'' }}</td>
                                                         <td>{{ $size->size }}</td>
                                                         <td>
                                                             <a wire:click.prevent="deleteData({{ $size->id }})" type="button" class="btn btn-outline-danger btn-icon-circle btn-icon-circle-sm"><i class="ti ti-trash"></i></a>
                                                         </td>
                                                     </tr>
                                                 @endforeach
-                                                
+
                                             </tbody>
                                         </table>
                                     </div>
@@ -89,7 +109,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 </div>
 

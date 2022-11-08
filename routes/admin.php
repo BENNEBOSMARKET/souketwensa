@@ -5,10 +5,12 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Livewire\Admin\Category\CategoryComponent;
 use App\Http\Livewire\Admin\Category\SubCategoryComponent;
 use App\Http\Livewire\Admin\Category\SubSubCategoryComponent;
+use App\Http\Livewire\Admin\Customer\SendMoneyCustomerComponent;
 use App\Http\Livewire\Admin\DashboardComponent;
 use App\Http\Livewire\Admin\Product\ProductComponent;
+use App\Http\Livewire\Admin\Seller\PendingSellersComponent;
+use App\Http\Livewire\Admin\Seller\SendMoneySellerComponent;
 use App\Http\Livewire\Admin\Setting\Color\ColorComponent;
-use App\Http\Livewire\Admin\Administrator\SubAdminComponent;
 use App\Http\Livewire\Admin\Customer\CustomerComponent;
 use App\Http\Livewire\Admin\Customer\CustomerProfileComponent;
 use App\Http\Livewire\Admin\Seller\SellerComponent;
@@ -16,6 +18,7 @@ use App\Http\Livewire\Admin\Seller\SellerProfileComponent;
 use App\Http\Livewire\Admin\Profile\ProfileComponent;
 use App\Http\Livewire\Admin\Administrator\AdministratorComponent;
 use App\Http\Livewire\Admin\Administrator\AdministratorProfileComponent;
+use App\Http\Livewire\Admin\Administrator\SubAdminComponent;
 use App\Http\Livewire\Admin\Blog\BlogComponent;
 use App\Http\Livewire\Admin\Blog\Category\BlogCategoryComponent;
 use App\Http\Livewire\Admin\Blog\CreateNewBlogComponent;
@@ -35,6 +38,7 @@ use App\Http\Livewire\Admin\Cms\SearchComponent;
 use App\Http\Livewire\Admin\CompanyInfo\CompanyCategoryComponent;
 use App\Http\Livewire\Admin\CompanyInfo\CompanyInfoComponent;
 use App\Http\Livewire\Admin\Contactus\ContactUsComponent;
+use App\Http\Livewire\Admin\Country\CountryComponent;
 use App\Http\Livewire\Admin\Coupon\CouponComponent;
 use App\Http\Livewire\Admin\DealsOfDay\DealsOfDayComponent;
 use App\Http\Livewire\Admin\Marketing\NewsletterComponent;
@@ -73,18 +77,26 @@ use App\Http\Livewire\Admin\Sales\Seller\SellerOrderDetailsComponent;
 use App\Http\Livewire\Admin\Sales\Seller\SellerOrdersComponent;
 use App\Http\Livewire\Admin\Seller\SellerCommissionComponent;
 use App\Http\Livewire\Admin\Seller\ShopVerificationInfoComponent;
+use App\Http\Livewire\Admin\Setting\ContactPageUsComponent;
 use App\Http\Livewire\Admin\Setting\CountryPhoneCodesComponent;
 use App\Http\Livewire\Admin\Setting\FeaturesActivationComponent;
+use App\Http\Livewire\Admin\Setting\FeaturesPageComponent;
+use App\Http\Livewire\Admin\Setting\HelpCenterComponent;
+use App\Http\Livewire\Admin\Setting\HelpCenterPageComponent;
+use App\Http\Livewire\Admin\Setting\HowBuyPageComponent;
+use App\Http\Livewire\Admin\Setting\OurServiceComponent;
 use App\Http\Livewire\Admin\Setting\PointSettingComponent;
 use App\Http\Livewire\Admin\Setting\SocialLoginCredentialComponent;
 use App\Http\Livewire\Admin\Slider\ElectronicSliderComponent;
 use App\Http\Livewire\Admin\Slider\SliderComponent;
 use App\Http\Livewire\Admin\Slider\TopBannerComponent;
 use App\Http\Livewire\Admin\Ticket\TicketComponent;
+use App\Http\Livewire\Admin\Variations\ProductTypeComponent;
 use App\Http\Livewire\Admin\Variations\SizeComponent;
 use App\Http\Livewire\Admin\Websitesetup\FooterSectionComponent;
 use App\Http\Livewire\Admin\Websitesetup\HeaderSectionComponent;
 use App\Http\Livewire\Auth\Admin\LoginComponent;
+use App\Models\HelpCenterPage;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
@@ -115,6 +127,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth:admin')->group(function
     Route::get('/category/sub-categories/products/{id}', SubCategoryProductsComponent::class)->name('subCategoryProducts');
     Route::get('/category/sub-categories/brands/{id}', SubCategoryBrandsComponent::class)->name('subCategoryBrands');
     Route::get('/category/translations/{id}', CategoryTranslationComponent::class)->name('categoryTranslation');
+    Route::get('/country', CountryComponent::class)->name('country-list');
 
     //Product Routes
     Route::get('/products', ProductComponent::class)->name('products');
@@ -139,8 +152,11 @@ Route::prefix('admin')->name('admin.')->middleware('auth:admin')->group(function
     Route::get('/setting/points', PointSettingComponent::class)->name('pointsSetting');
 
     Route::get('/setting/phone-codes', CountryPhoneCodesComponent::class)->name('countryPhoneCodes');
-
-
+    Route::get('/setting/HowBuy', HowBuyPageComponent::class)->name('HowBuy');
+    Route::get('/setting/Feature', FeaturesPageComponent::class)->name('Feature');
+    Route::get('/setting/HelpCenterPage', HelpCenterPageComponent::class)->name('HelpCenterPage');
+    Route::get('/setting/OurServicePage', OurServiceComponent::class)->name('OurService');
+    Route::get('/setting/ContactUsPage', ContactPageUsComponent::class)->name('ContactUsPage');
     // Profile
     Route::get('/profile', ProfileSettingComponent::class)->name('profile');
     Route::get('/setting/profile', ProfileComponent::class)->name('profileSetting');
@@ -149,16 +165,20 @@ Route::prefix('admin')->name('admin.')->middleware('auth:admin')->group(function
     // Customer
     Route::get('/user-management/customer/list', CustomerComponent::class)->name('customersList');
     Route::get('/user-management/customer/profile/{id}', CustomerProfileComponent::class)->name('customer.profile');
-    Route::get('/user-management/subadmin/list', SubAdminComponent::class)->name('sub.admins');
+    Route::get('/send-money-Customer', SendMoneyCustomerComponent::class)->name('sendMoneyCustomer');
 
     // Seller
     Route::get('/seller/all-seller', SellerComponent::class)->name('sellerList');
+    Route::get('/seller/PendingSellers', PendingSellersComponent::class)->name('pendingSellers');
     Route::get('/seller/all-seller/verification-info/{seller_id}', ShopVerificationInfoComponent::class)->name('seller.shopVerificationInfo');
     Route::get('/seller/profile/{id}', SellerProfileComponent::class)->name('seller.profile');
+    Route::get('/send-money-seller', SendMoneySellerComponent::class)->name('sendMoneySeller');
 
     // Admin
     Route::get('/user-management/admin/list', AdministratorComponent::class)->name('administratorList');
     Route::get('/user-management/admin/profile/{id}', AdministratorProfileComponent::class)->name('admin.profile');
+    Route::get('/user-management/customer/profile/{id}', CustomerProfileComponent::class)->name('customer.profile');
+    Route::get('/user-management/subadmin/list', SubAdminComponent::class)->name('sub.admins');
 
     // Marketting Section
     Route::get('/marketing/subscribers', SubscriberComponent::class)->name('subscribers');
@@ -171,13 +191,13 @@ Route::prefix('admin')->name('admin.')->middleware('auth:admin')->group(function
     Route::get('/sliders', SliderComponent::class)->name('sliders');
     Route::get('/electronic/sliders', ElectronicSliderComponent::class)->name('electronic-sliders');
     Route::get('/top/banner', TopBannerComponent::class)->name('top.banner');
-
+    Route::get('/edit/photo', \App\Http\Livewire\Admin\Slider\EditPhotoComponent::class)->name('editPhoto');
     //Blog
     Route::get('/blogs', BlogComponent::class)->name('allBlogs');
     Route::get('/blogs/add-new-blog', CreateNewBlogComponent::class)->name('addNewBlog');
     Route::get('/blogs/edit-blog/{id}', EditBlogComponent::class)->name('editBlog');
     Route::get('/blogs/categories', BlogCategoryComponent::class)->name('blogCategories');
-
+    Route::get('/news/page', \App\Http\Livewire\Admin\Blog\NewsPgaeComponent::class)->name('newsPage');
     // Career Routes
     Route::get('/career', CareersComponent::class)->name('career');
 
@@ -232,16 +252,18 @@ Route::prefix('admin')->name('admin.')->middleware('auth:admin')->group(function
 
     // Product Variations
     Route::get('/products/sizes', SizeComponent::class)->name('productSizes');
+    Route::get('/products/type', ProductTypeComponent::class)->name('productType');
 
     //CMS
     Route::get('/cms/report-map', ReportMapComponentV2::class)->name('reportMap');
-    Route::get('/cms/report-map/upload', ReportMapComponent::class);
+    Route::get('/cms/report-map/addCoordinates', ReportMapComponent::class)->name('addCoordinates');
     Route::get('/cms/middle-banner', MiddleBannerComponent::class)->name('middle-banner');
     Route::get('/cms/right-grid-banner', RightGridBannerComponent::class)->name('right-grid-banner');
     Route::get('/cms/bottom-banner', BottomBannerComponent::class)->name('bottom-banner');
     Route::get('/cms/customer/search', SearchComponent::class)->name('recent.search');
     Route::get('/cms/manage/home/product', ManageProductComponent::class)->name('manage.product');
     Route::get('/cms/big-deals', BigDealsComponent::class)->name('bigDeals');
+
 
     // contact Message
     Route::get('/contact/message', ContactUsComponent::class)->name('contact.us.message');
@@ -253,7 +275,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth:admin')->group(function
 
     //Commission History
     Route::get('/commission-history', SellerCommissionComponent::class)->name('commission.history');
-    
+
     //Marketing Referrals
     Route::get('/referrals', ReferralComponent::class)->name('referrals');
 });

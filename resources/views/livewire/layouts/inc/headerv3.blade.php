@@ -450,7 +450,7 @@
                                             </option>
                                         </select>
                                     </div>
-                                    
+
                                     <div class="input_row">
                                         <label for="">{{ __('auth.delivery_country') }}</label>
                                         <div class="country_mobile">
@@ -821,7 +821,7 @@
                                                     </option>
                                                 </select>
                                             </div>
-                                            
+
                                             <div class="input_row">
                                                 <label for="">{{ __('auth.delivery_country') }}</label>
                                                 <div class="country">
@@ -861,7 +861,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="input_row select_row">
                                                 <label for="">{{ __('auth.select_curency') }}</label>
                                                 <select class="niceSelect">
@@ -1014,7 +1014,7 @@
                         </div>
                         <div class="hero_right_side_area">
                             <a href="#" class="text-center">
-                                <img src="{{ asset($rightGridBanner) }}"
+                                <img src="{{ !is_null($rightGridBanner)?$rightGridBanner->banner: asset( "assets/front/images/home/hero_right_side_img.png")}}"
                                     alt="hero right image" class="hero_right_img" />
                             </a>
                             <div class="hero_divide_line_grid_area">

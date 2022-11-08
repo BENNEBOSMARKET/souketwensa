@@ -68,11 +68,13 @@ class WishListRepository extends BaseRepository implements WishListRepositoryInt
 
     public function deleteWishList(WishListRequest $wishListRequest)
     {
+
         if($wishListRequest->has("user_id")){
             return $this->model->where('user_id',$wishListRequest->user_id)->delete();
         }else{
             return $this->model->where('device_token',$wishListRequest->device_token)->delete();
         }
+
 
     }
 

@@ -4,9 +4,14 @@ namespace App\Http\Livewire\Admin\Blog;
 
 use App\Models\Blog;
 use Livewire\Component;
+use Livewire\WithFileUploads;
+use Livewire\WithPagination;
 
 class BlogComponent extends Component
 {
+    use WithPagination;
+    use WithFileUploads;
+
     public $sortingValue = 10, $searchTerm;
     public $delete_id;
     protected $listeners = ['deleteConfirmed'=>'deleteData'];
@@ -42,7 +47,8 @@ class BlogComponent extends Component
 
     public function render()
     {
-        $blogs = Blog::orderBy('created_at', 'DESC')->paginate($this->sortingValue);
+        $blogs = Blog::where('title', 'LIKE', '%' . $this->searchTerm . '%')
+            ->orderBy('created_at', 'DESC')->paginate($this->sortingValue);
         return view('livewire.admin.blog.blog-component', ['blogs' => $blogs])->layout('livewire.admin.layouts.base');
     }
 }
