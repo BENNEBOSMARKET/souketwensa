@@ -75,7 +75,11 @@ class QutotationComponent extends Component
     }
     public function render()
     {
-        $qutotations = Qutotation::orderBy('id', 'DESC')->paginate($this->sortingValue);
+        $qutotations = Qutotation::where('name', 'like', '%'.$this->searchTerm.'%')
+            ->orWhere('sourcing_type', 'LIKE', '%' . $this->searchTerm . '%')
+            ->orWhere('quantity', 'LIKE', '%' . $this->searchTerm . '%')
+            ->orderBy('id', 'DESC')->paginate($this->sortingValue);
+
         return view('livewire.admin.qutotation.qutotation-component', ['qutotations'=> $qutotations])->layout('livewire.admin.layouts.base');
     }
 }

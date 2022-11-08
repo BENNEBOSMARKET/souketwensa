@@ -9,6 +9,8 @@ use Livewire\Component;
 use App\Models\Seller;
 use App\Models\Shop;
 use Carbon\Carbon;
+use Exception;
+use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Livewire\WithFileUploads;
@@ -150,6 +152,47 @@ class SellerComponent extends Component
         $this->dispatchBrowserEvent('close_view_modal');
         $this->dispatchBrowserEvent('show_edit_modal');
     }
+    public function assignSellerAddress($seller_id)
+    {
+        $shop = shop($seller_id);
+        $shippingSeller = Seller::find($seller_id);
+        $client = new Client([
+            'verify' => false,
+            'headers' => [
+                'Accept' => 'application/json',
+                'Content-Type' => 'application/json',
+            ]
+        ]);
+        try{
+            $response = $client->request('POST', "https://shipping.bennebosmarket.online/api/shippment/save/address", [
+                'body' => json_encode([
+                    "address" => [
+                        "CompleteAddress"=>$shop->address . "/" . $shop->state_name . "/" . $shop->country_name,
+                        "Name"=>$shippingSeller->name,
+                        "PhoneNumber"=>$shippingSeller->phone,
+                        "EMail"=>$shippingSeller->email,
+                        "CustomerAddressId"=>uniqid().$seller_id,
+                        "CityName"=>$shop->state_name,
+                        "TownName"=>$shop->county_name,
+                        "AccountId"=>"{913CA874-370A-13DC-AFA4-B94E7CCD14B3}",
+                        "CustomerAddressInfoId"=>"{913CA874-370A-13DC-AFA4-B94E7CCD14B3}"
+                    ]
+                ]),
+            ]);
+            $result = json_decode($response->getBody(), true);
+            if ($result['data']['ResultCode'] != 1){
+                $this->dispatchBrowserEvent('error', ['message' => $result['data']['Message']]);
+            }else{
+                $shippingSeller->update(['aras_address_id' => $result['data']['AddressId'], "aras_assigned" => 1]);
+                $shippingSeller->refresh();
+                $this->dispatchBrowserEvent('success', ['message' => "address has been added successfully"]);
+            }
+        }catch(Exception $e){
+            $this->dispatchBrowserEvent('error', ['message' => $e->getMessage()]);
+        }
+
+
+    }
 
     public function updateSeller()
     {
@@ -182,7 +225,20 @@ class SellerComponent extends Component
     public function render()
     {
         $profile = Seller::find($this->seller_id);
-        $sellers = Seller::where('name', 'LIKE', '%' . $this->searchTerm . '%')->orWhere("referral_code",$this->searchTerm)->orderBy('created_at', 'DESC')->paginate($this->sortingValue);
+        $sellers = Seller:: where(function ($q) {
+                $q->where('sellers.name', 'LIKE', '%' . $this->searchTerm . '%')
+                ->orWhere('sellers.email', 'LIKE', '%' . $this->searchTerm . '%')
+                ->orWhere('sellers.phone', 'LIKE', '%' . $this->searchTerm . '%')
+                ->orWhere('sellers.referral_code', 'LIKE', '%' . $this->searchTerm . '%')
+                ->orWhere('sellers.created_at', 'LIKE', '%' . $this->searchTerm . '%');
+                });
+        $shops=Shop::where('name','LIKE', '%' . $this->searchTerm . '%')->first();
+        if ($shops and $this->searchTerm != ''){
+             $sellers=$sellers->orWhere('id',$shops->seller_id)->orderBy('sellers.created_at', 'DESC')->paginate($this->sortingValue);
+        }
+        else{
+            $sellers=$sellers->orderBy('sellers.created_at', 'DESC')->paginate($this->sortingValue);
+        }
         return view('livewire.admin.seller.seller-component', ['sellers' => $sellers, 'profile' => $profile])->layout('livewire.admin.layouts.base');
     }
 }

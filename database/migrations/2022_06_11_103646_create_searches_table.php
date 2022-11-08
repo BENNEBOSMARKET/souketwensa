@@ -16,7 +16,7 @@ class CreateSearchesTable extends Migration
         Schema::create('searches', function (Blueprint $table) {
             $table->id();
             $table->string('query')->nullable();
-            $table->string('count')->nullable();
+            $table->string('count')->default(0);
             $table->timestamps();
         });
     }

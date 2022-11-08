@@ -252,7 +252,7 @@
         <div class="my-container">
             <div class="top_banner_area text-center">
                 <a href="#">
-                    <img src="{{ asset('assets/front/images/home/product_banner_img_2.png') }}" />
+                    <img src="{{ !is_null($firstBannerPhoto)?$firstBannerPhoto->banner: asset('assets/front/images/home/product_banner_img_1.jpeg')}}" />
                 </a>
             </div>
         </div>
@@ -830,7 +830,7 @@
         <div class="my-container">
             <div class="top_banner_area text-center">
                 <a href="#">
-                    <img src="{{ asset('assets/front/images/home/product_banner_img_3.png') }}"
+                    <img src="{{ !is_null($secondBannerPhoto)?$secondBannerPhoto->banner:  asset('assets/front/images/home/product_banner_img_3.png') }}"
                         alt="product_banner_img" />
                 </a>
             </div>

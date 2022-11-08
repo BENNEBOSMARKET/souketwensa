@@ -39,7 +39,7 @@ class BottomBannerComponent extends Component
 
         $imageName = Carbon::now()->timestamp . '.' . $this->banner->extension();
         $this->banner->storeAs('imgs/banner', $imageName, 's3');
-        $data->banner = env('AWS_BUCKET_URL') . 'imgs/banner/' . $imageName;
+        $data->banner = "https://souketwensa.s3.amazonaws.com/" . 'imgs/banner/' . $imageName;
 
         $data->save();
 
@@ -78,7 +78,7 @@ class BottomBannerComponent extends Component
         if ($this->banner != '') {
             $imageName = Carbon::now()->timestamp . '.' . $this->banner->extension();
             $this->banner->storeAs('imgs/banner', $imageName, 's3');
-            $data->banner = env('AWS_BUCKET_URL') . 'imgs/category/' . $imageName;
+            $data->banner = "https://souketwensa.s3.amazonaws.com/" . 'imgs/category/' . $imageName;
         }
 
         $data->save();
@@ -104,7 +104,7 @@ class BottomBannerComponent extends Component
 
     public function render()
     {
-        $bottomBanners = BottomBanner::orderBy('id', 'DESC')->paginate($this->sortingValue);
+        $bottomBanners = BottomBanner::orderBy('id', 'DESC')->where('title', 'LIKE', '%' . $this->searchTerm . '%')->paginate($this->sortingValue);
         return view('livewire.admin.cms.bottom-banner-component', ['bottomBanners' => $bottomBanners])->layout('livewire.admin.layouts.base');
     }
 }
