@@ -235,7 +235,7 @@ class PendingSellersComponent extends Component
  $sellers = Seller::join('shops','sellers.id','shops.seller_id')->where('shops.verification_status','!=',1)
             ->select('sellers.id','sellers.name','sellers.phone','sellers.email','sellers.referral_code','sellers.referral_code',
                 'sellers.email_verified_at','sellers.disabled','sellers.password','sellers.avatar','sellers.application_status',
-                'sellers.aras_assigned','sellers.aras_address_id','sellers.created_at','shops.verification_status'
+                'sellers.aras_address_id','sellers.created_at','shops.verification_status'
             )->where(function ($q) {
                 $q->where('sellers.name', 'like', '%' . $this->searchTerm . '%')
                     ->orWhere('sellers.phone', 'like', '%' . $this->searchTerm . '%')
